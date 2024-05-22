@@ -22,6 +22,14 @@ public class ficheros {
 		String nombre = ",mario";
 		String extencion = ".txt";
 		
+		
+		//canal de salida de errores
+		try {
+			System.setErr( new PrintStream ( 
+						   new FileOutputStream( 
+					       new File("Erroes.log")) , true ) ) 
+					     );
+		} 
 		archivo = new File( ruta.concat(nombre.concat(extencion)) );
 		
 	}
