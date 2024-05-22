@@ -1,5 +1,6 @@
 package files;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ficheros {
 	
@@ -44,10 +47,10 @@ public class ficheros {
 			
 			pw.println("Otro MUNDO");		
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
 		}
 		finally {
 			try {
@@ -58,7 +61,7 @@ public class ficheros {
 					fw.close();
 				
 			} catch (IOException e) {
-				e.printStackTrace();
+				Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
 			}
 			
 		}
@@ -78,13 +81,44 @@ public class ficheros {
 			ps.flush();
 			
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
 		}
 		
 	}
 
-	public void CreateFileBuffered(File a) 
+	public void createFileBuffered(File a) //el goat
 	{
+		BufferedWriter bw = null;
+		FileWriter fw = null;
+		
+		try {
+			fw = new FileWriter(a,false);
+			bw = new BufferedWriter(fw);
+			
+			bw.write("un");
+			bw.newLine();
+			bw.write("ppt");
+			bw.newLine();
+			bw.write("ME VAS A HACER");
+			bw.newLine();
+			
+			bw.flush();
+			
+			
+		} catch (IOException e) {
+			Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
+		} finally {
+			try {
+				if( fw != null )
+					fw.close();
+				
+				if( bw != null )
+					bw.close();
+			} catch (IOException e) {
+				Logger.getLogger(ficheros.class.getName()).log(Level.WARNING,null, e );
+			}
+			//logger ayuda a trackear el error (mejor que printStackTrace)
+		}
 		
 	}
 	

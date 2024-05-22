@@ -8,7 +8,7 @@ public class main {
 		ficheros archivo = new ficheros();
 		
 		//archivo.createFilePrintStream(archivo.getArchivo());
-		archivo.createFilePrinter(archivo.getArchivo());
+		archivo.createFileBuffered(archivo.getArchivo());
 	}
 	
 	
