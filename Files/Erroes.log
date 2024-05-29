@@ -1,0 +1,24 @@
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:49)
+	at files.main.main(main.java:12)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.getName()" because "this.archivo" is null
+	at files.ficheros.datosArchivos(ficheros.java:45)
+	at files.main.main(main.java:13)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:77)
+	at files.main.main(main.java:12)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:77)
+	at files.main.main(main.java:12)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.getName()" because "this.archivo" is null
+	at files.ficheros.datosArchivos(ficheros.java:46)
+	at files.main.main(main.java:13)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:78)
+	at files.main.main(main.java:15)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:78)
+	at files.main.main(main.java:15)
+Exception in thread "main" java.lang.NullPointerException: Cannot invoke "java.io.File.exists()" because "a" is null
+	at files.ficheros.createFilePrinter(ficheros.java:78)
+	at files.main.main(main.java:15)

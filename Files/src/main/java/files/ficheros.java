@@ -1,9 +1,11 @@
 package files;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -19,24 +21,53 @@ public class ficheros {
 	public ficheros() 
 	{
 		String ruta = ""; // "c:\\User\\"
-		String nombre = ",mario";
+		String nombre = "mario";
 		String extencion = ".txt";
 		
 		
+		archivo = new File( ruta.concat(nombre).concat(extencion) );
 		//canal de salida de errores
 		try {
 			System.setErr( new PrintStream ( 
 						   new FileOutputStream( 
-					       new File("Erroes.log")) , true ) ) 
+					       new File("Erroes.log") , true )) 
 					     );
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		} 
-		archivo = new File( ruta.concat(nombre.concat(extencion)) );
-		
 	}
 	
 	public File getArchivo()
 	{
 		return this.archivo;
+	}
+	
+	public void datosArchivos() 
+	{
+		try {
+			ps = new PrintStream(System.out);
+			ps.println( "Nombre del archivo: " + archivo.getName() );
+			ps.println( "Path: " + archivo.getPath() );
+			ps.println( "Path Abs: " + archivo.getAbsolutePath() );
+			ps.println( "Path Cannon: " + archivo.getCanonicalPath() );
+			ps.println( "Contenedir del archivo: " + archivo.getParentFile() );
+			ps.println( "Parent: " + archivo.getParent());
+			ps.println( "Tamaño: " + archivo.getTotalSpace());
+			ps.println( "Ejecutable:" + archivo.canExecute());
+			ps.println( "Acceso de lectura:" + archivo.canRead() );
+			ps.println( "Acceso de escritura:" + archivo.canWrite() );
+			ps.println( "Esta oculto:" + archivo.isHidden() );
+			ps.println( "Existe:" + archivo.exists() );
+			ps.println( "Es archivo:" + archivo.isFile() );
+			ps.println( "Es carpeta:" + archivo.isDirectory() );
+			//ps.println( ":" + archivo.createNewFile() ); <- Crea archivos
+			//ps.println( ":" + archivo.mkdir() ); <- Crea carpetas
+			//ps.println( "Renombrar:" + archivo.renameTo("NuevoNombre.txt") ); <- Renombra el archivo
+			//ps.println( "Eliminar cuando se cierre el programa:" + archivo.deleteOnExit() );
+			//ps.println( ":" + archivo.set ); Nos deja setear el archivo como leible, ejecutable, read only, etc
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void createFilePrinter(File a) //clase para escribir en archivos
@@ -128,6 +159,68 @@ public class ficheros {
 			//logger ayuda a trackear el error (mejor que printStackTrace)
 		}
 		
+	}
+	
+	//lectura de archivos:
+	public String  leerCharByChar(File a) 
+	{	
+		FileReader fr = null;
+		String texto = "";
+		
+		try {
+			fr= new FileReader(a);
+			
+			int letra;
+			
+			while ( (letra = fr.read()) != -1  ) 
+			{
+				texto += (char)letra;
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return texto;
+	}
+	
+	public String leerConReader(File a) 
+	{
+		FileReader fr = null;
+		BufferedReader br = null;
+		String texto = "";
+		
+		try {
+			fr = new FileReader(a);
+			br = new BufferedReader(fr);
+			
+			String linea="";
+			while ( (br.readLine() ) != null ) 
+			{
+				texto += linea.concat("\n");
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		return texto;
 	}
 	
 }
