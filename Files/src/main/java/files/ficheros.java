@@ -204,7 +204,7 @@ public class ficheros {
 			String linea="";
 			while ( (br.readLine() ) != null ) 
 			{
-				texto += linea.concat("\n");
+				texto += linea.concat("\n") + utils.ANSI_MAGENTA;
 			}
 			
 		} catch (FileNotFoundException e) {
