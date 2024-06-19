@@ -12,10 +12,14 @@ public class main {
 		
 		//archivo.createFilePrintStream(archivo.getArchivo());
 		//archivo.createFilePrintStream(archivo.getArchivo());
-		archivo.createFilePrinter(archivo.getArchivo());
+		//archivo.createFilePrinter(archivo.getArchivo());
 		//archivo.datosArchivos();
 		//ps.println( archivo.leerCharByChar(archivo.getArchivo()) );
-		ps.println( archivo.leerConReader(archivo.getArchivo()) );
+		//ps.println( archivo.leerConReader(archivo.getArchivo()) );
+		
+		//archivo.editarArchivo(archivo.getArchivo());
+		archivo.eliminarArchivo(archivo.getArchivo());
+
 	}
 
 }
