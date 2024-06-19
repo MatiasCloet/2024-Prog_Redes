@@ -305,7 +305,7 @@ public class ficheros {
 			{		
 					//renglones.add(renglon);
 					if( !renglon.contains("1") )
-					renglones.add(renglon.toLowerCase());
+						renglones.add(renglon.toLowerCase());
 					
 			}
 			Fr.close();
