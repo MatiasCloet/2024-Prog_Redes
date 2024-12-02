@@ -22,7 +22,7 @@ public class VolatilGuardado {
 		ArrayList <Integer> listaNums = new ArrayList();
 		
 		for(int i = 0; i < 5; i++) {
-		//	ps.println("Posicion: " + i);   (orientarme borrar dsp)
+
 			String numS = null;
 			try {
 				numS = br.readLine();

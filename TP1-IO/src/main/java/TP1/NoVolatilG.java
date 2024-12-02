@@ -89,7 +89,6 @@ public class NoVolatilG {
 					ps.println(numIndividual);
 					ps.flush();
 					
-	//				psSalida.println("cantidad ceros" + cantCeros);  
 					
 					}
 				}else {
@@ -119,7 +118,6 @@ public class NoVolatilG {
 		FileOutputStream fosErrores = null;
 		PrintStream ps = new PrintStream(System.out);
 		
-		//No me pegue profe es para que no se me junte demasiado en el bloc T.T
 		
 		resultados.delete();
 		error.delete();
